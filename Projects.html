@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Mohan Babu M</title>
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="Styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav>
+      <div class="logo">MB</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+      <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </div>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+
+    <header class="page-header">
+      <h1>My <span>Projects</span></h1>
+      <p>Explore my work and personal projects</p>
+      <div class="header-decoration">
+        <canvas id="projects-header-canvas"></canvas>
+      </div>
+    </header>
+
+    <main class="projects-container">
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Dev</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="devops">DevOps</button>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card" data-category="ai web">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="#" class="view-project-btn" data-project="adaptlearn"
+                >View Details</a
+              >
+            </div>
+            <div class="project-thumbnail adaptlearn"></div>
+            <div class="project-tags">
+              <span>AI</span>
+              <span>Web</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>ADAPTLEARN AI</h3>
+            <p>Smart Learning Platform</p>
+            <div class="project-tech">
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>AI Models</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="#" class="view-project-btn" data-project="foodorder"
+                >View Details</a
+              >
+            </div>
+            <div class="project-thumbnail foodorder"></div>
+            <div class="project-tags">
+              <span>Web</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>COLLEGE-CENTRIC FOOD ORDERING</h3>
+            <p>Web Application</p>
+            <div class="project-tech">
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web ai">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="#" class="view-project-btn" data-project="diaflow"
+                >View Details</a
+              >
+            </div>
+            <div class="project-thumbnail diaflow"></div>
+            <div class="project-tags">
+              <span>Web</span>
+              <span>AI</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>DIAFLOW</h3>
+            <p>AI Powered Diagramming Tool</p>
+            <div class="project-tech">
+              <span>React.js</span>
+              <span>HTML/CSS</span>
+              <span>React Flow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="#" class="view-project-btn" data-project="moviebooking"
+                >View Details</a
+              >
+            </div>
+            <div class="project-thumbnail moviebooking"></div>
+            <div class="project-tags">
+              <span>Web</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>MOVIE BOOKING WEBSITE</h3>
+            <p>Internship Project</p>
+            <div class="project-tech">
+              <span>React.js</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="project-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+          <button class="close-modal">&times;</button>
+          <div class="modal-body">
+            <!-- AdaptLearn Modal Content -->
+            <div id="adaptlearn-modal" class="project-detail">
+              <div class="modal-header">
+                <h2>ADAPTLEARN AI</h2>
+                <div class="modal-badges">
+                  <span class="badge ai">AI</span>
+                  <span class="badge web">Web</span>
+                </div>
+              </div>
+
+              <div class="modal-media">
+                <div class="media-showcase">
+                  <div class="media-main">
+                    <div class="media-item active" id="adaptlearn-media-1">
+                      <div class="video-container">
+                        <video poster="/api/placeholder/1200/700" controls>
+                          <source src="#" type="video/mp4" />
+                          Your browser does not support videos.
+                        </video>
+                        <div class="play-button">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media-item" id="adaptlearn-media-2">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="AdaptLearn Dashboard"
+                      />
+                    </div>
+                    <div class="media-item" id="adaptlearn-media-3">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="AdaptLearn Mobile View"
+                      />
+                    </div>
+                  </div>
+                  <div class="media-thumbs">
+                    <div class="thumb active" data-target="adaptlearn-media-1">
+                      <div class="thumb-overlay">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Video thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="adaptlearn-media-2">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Dashboard thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="adaptlearn-media-3">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Mobile thumbnail"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-info">
+                <div class="info-section description">
+                  <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                  <p>
+                    ADAPTLEARN AI is an advanced learning platform that
+                    leverages artificial intelligence to deliver personalized
+                    education experiences. The platform begins with
+                    comprehensive skill assessments to understand each learner's
+                    strengths and areas for improvement, then creates customized
+                    learning paths tailored to individual needs.
+                  </p>
+                  <p>
+                    The platform features AI-generated video lessons that adapt
+                    to learning styles, interactive coding environments for
+                    hands-on practice, and real-time AI tutoring to resolve
+                    doubts instantly. It also includes a professional
+                    certification system to help users advance their careers.
+                  </p>
+                </div>
+
+                <div class="info-section features">
+                  <h3><i class="fas fa-star"></i> Key Features</h3>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Personalized skill
+                      assessment
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Customized learning
+                      paths
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> AI-generated video
+                      lessons
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Interactive coding
+                      environments
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Real-time AI tutoring
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Progress Tracking
+                      Dashboard
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="info-section tech">
+                  <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                  <div class="tech-grid">
+                    <div class="tech-item">
+                      <i class="fab fa-react"></i>
+                      <span>React.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fab fa-node-js"></i>
+                      <span>Node.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fas fa-robot"></i>
+                      <span>AI Models</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-section links">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="btn github"
+                  >
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                  <a href="#" target="_blank" class="btn demo">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Food Order Modal Content -->
+            <div id="foodorder-modal" class="project-detail hidden">
+              <div class="modal-header">
+                <h2>COLLEGE-CENTRIC FOOD ORDERING</h2>
+                <div class="modal-badges">
+                  <span class="badge web">Web</span>
+                </div>
+              </div>
+
+              <div class="modal-media">
+                <div class="media-showcase">
+                  <div class="media-main">
+                    <div class="media-item active" id="foodorder-media-1">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="Food Order Main"
+                      />
+                    </div>
+                    <div class="media-item" id="foodorder-media-2">
+                      <div class="video-container">
+                        <video poster="/api/placeholder/1200/700" controls>
+                          <source src="#" type="video/mp4" />
+                          Your browser does not support videos.
+                        </video>
+                        <div class="play-button">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media-item" id="foodorder-media-3">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="Food Order Mobile"
+                      />
+                    </div>
+                  </div>
+                  <div class="media-thumbs">
+                    <div class="thumb active" data-target="foodorder-media-1">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Main thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="foodorder-media-2">
+                      <div class="thumb-overlay">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Video thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="foodorder-media-3">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Mobile thumbnail"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-info">
+                <div class="info-section description">
+                  <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                  <p>
+                    This web application bridges local food vendors with college
+                    students and staff, creating a seamless food ordering and
+                    delivery ecosystem. The platform enables college communities
+                    to browse menus, place orders, and arrange deliveries to the
+                    college gate.
+                  </p>
+                  <p>
+                    For shop owners, the system provides valuable data to
+                    predict order volumes, reduce food waste, optimize
+                    resources, and expand their customer base without
+                    significant infrastructure investments.
+                  </p>
+                </div>
+
+                <div class="info-section features">
+                  <h3><i class="fas fa-star"></i> Key Features</h3>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Easy menu browsing and
+                      ordering
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Delivery coordination
+                      to college gate
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Order prediction
+                      analytics
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Resource optimization
+                      tools
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> User-friendly vendor
+                      dashboard
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Order status tracking
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="info-section tech">
+                  <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                  <div class="tech-grid">
+                    <div class="tech-item">
+                      <i class="fab fa-react"></i>
+                      <span>React.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fab fa-node-js"></i>
+                      <span>Node.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fas fa-database"></i>
+                      <span>MongoDB</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-section links">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="btn github"
+                  >
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                  <a href="#" target="_blank" class="btn demo">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diaflow Modal Content -->
+            <div id="diaflow-modal" class="project-detail hidden">
+              <div class="modal-header">
+                <h2>DIAFLOW</h2>
+                <div class="modal-badges">
+                  <span class="badge web">Web</span>
+                  <span class="badge ai">AI</span>
+                </div>
+              </div>
+
+              <div class="modal-media">
+                <div class="media-showcase">
+                  <div class="media-main">
+                    <div class="media-item active" id="diaflow-media-1">
+                      <img src="/api/placeholder/1200/700" alt="Diaflow Main" />
+                    </div>
+                    <div class="media-item" id="diaflow-media-2">
+                      <div class="video-container">
+                        <video poster="/api/placeholder/1200/700" controls>
+                          <source src="#" type="video/mp4" />
+                          Your browser does not support videos.
+                        </video>
+                        <div class="play-button">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media-item" id="diaflow-media-3">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="Diaflow Examples"
+                      />
+                    </div>
+                  </div>
+                  <div class="media-thumbs">
+                    <div class="thumb active" data-target="diaflow-media-1">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Main thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="diaflow-media-2">
+                      <div class="thumb-overlay">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Video thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="diaflow-media-3">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Examples thumbnail"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-info">
+                <div class="info-section description">
+                  <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                  <p>
+                    Diaflow is an innovative AI-powered diagramming tool built
+                    with React, drawing inspiration from platforms like draw.io
+                    and mindmap.ai. The application provides a clean, intuitive
+                    interface for creating diagrams with a focus on usability
+                    and aesthetics.
+                  </p>
+                  <p>
+                    Users can drag clean shapes without wrappers, visually
+                    connect them with arrows or lines, and leverage AI
+                    capabilities to generate diagrams directly from text
+                    prompts, streamlining the diagramming process for technical
+                    and non-technical users alike.
+                  </p>
+                </div>
+
+                <div class="info-section features">
+                  <h3><i class="fas fa-star"></i> Key Features</h3>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Clean shape library
+                      without visual wrappers
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Intuitive connection
+                      system
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> AI-powered diagram
+                      generation from text
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Customizable styling
+                      options
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Export in multiple
+                      formats
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Collaborative editing
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="info-section tech">
+                  <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                  <div class="tech-grid">
+                    <div class="tech-item">
+                      <i class="fab fa-react"></i>
+                      <span>React.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fab fa-html5"></i>
+                      <span>HTML/CSS</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fas fa-project-diagram"></i>
+                      <span>React Flow</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-section links">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="btn github"
+                  >
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                  <a href="#" target="_blank" class="btn demo">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Movie Booking Modal Content -->
+            <div id="moviebooking-modal" class="project-detail hidden">
+              <div class="modal-header">
+                <h2>MOVIE BOOKING WEBSITE</h2>
+                <div class="modal-badges">
+                  <span class="badge web">Web</span>
+                </div>
+              </div>
+
+              <div class="modal-media">
+                <div class="media-showcase">
+                  <div class="media-main">
+                    <div class="media-item active" id="moviebooking-media-1">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="Movie Booking Main"
+                      />
+                    </div>
+                    <div class="media-item" id="moviebooking-media-2">
+                      <div class="video-container">
+                        <video poster="/api/placeholder/1200/700" controls>
+                          <source src="#" type="video/mp4" />
+                          Your browser does not support videos.
+                        </video>
+                        <div class="play-button">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media-item" id="moviebooking-media-3">
+                      <img
+                        src="/api/placeholder/1200/700"
+                        alt="Movie Booking Mobile"
+                      />
+                    </div>
+                  </div>
+                  <div class="media-thumbs">
+                    <div
+                      class="thumb active"
+                      data-target="moviebooking-media-1"
+                    >
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Main thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="moviebooking-media-2">
+                      <div class="thumb-overlay">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Video thumbnail"
+                      />
+                    </div>
+                    <div class="thumb" data-target="moviebooking-media-3">
+                      <img
+                        src="/api/placeholder/180/100"
+                        alt="Mobile thumbnail"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-info">
+                <div class="info-section description">
+                  <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                  <p>
+                    During my internship at Ether Infotech, I developed a fully
+                    responsive Movie Booking website using React.js and
+                    JavaScript. This project served as a practical application
+                    of my frontend development skills in a professional setting.
+                  </p>
+                  <p>
+                    The website features dynamic movie listings that update
+                    based on availability, an interactive seat selection system
+                    with visual feedback, and a real-time booking system that
+                    manages ticket availability and processes user bookings
+                    efficiently.
+                  </p>
+                </div>
+
+                <div class="info-section features">
+                  <h3><i class="fas fa-star"></i> Key Features</h3>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Responsive design for
+                      all devices
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Dynamic movie listings
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Interactive seat
+                      selection
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Real-time booking
+                      system
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> User authentication
+                    </li>
+                    <li><i class="fas fa-check-circle"></i> Booking history</li>
+                  </ul>
+                </div>
+
+                <div class="info-section tech">
+                  <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                  <div class="tech-grid">
+                    <div class="tech-item">
+                      <i class="fab fa-react"></i>
+                      <span>React.js</span>
+                    </div>
+                    <div class="tech-item">
+                      <i class="fab fa-js"></i>
+                      <span>JavaScript</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-section links">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    class="btn github"
+                  >
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                  <a href="#" target="_blank" class="btn demo">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <div class="footer-logo">MB</div>
+          <p>DevOps & Frontend Developer</p>
+        </div>
+        <div class="footer-center">
+          <p>&copy; 2025 Mohan Babu M. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+          <div class="social-links">
+            <a href="mailto:mohanbabu2502@gmail.com" aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+            <a
+              href="https://github.com/mohan-ux"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://tinyurl.com/53pvfk47"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://leetcode.com/u/cartooncity77"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeetCode"
+              ><i class="fas fa-code"></i
+            ></a>
+            <a href="tel:+918610987397" aria-label="Phone"
+              ><i class="fas fa-phone"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="project.js"></script>
+  </body>
+</html>
